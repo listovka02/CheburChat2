@@ -45,8 +45,8 @@ await fetch("/api/user/public/" + user2_id).then(response => response.json()).th
     iDB.onsuccess = () => {
         const db = iDB.result;
 
-        const tx = db.transaction("vault", "readonly");
-        const store = tx.objectStore("vault");
+        const tx = db.transaction("default", "readonly");
+        const store = tx.objectStore("default");
 
         const res = store.get("main");
 

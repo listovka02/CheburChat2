@@ -84,15 +84,15 @@ phraseSubmit.onclick = async function () {
 
     idDB.onupgradeneeded = () => {
         const db = idDB.result;
-        if (!db.objectStoreNames.contains("vault")) {
-            db.createObjectStore("vault"); // создаём объектное хранилище
+        if (!db.objectStoreNames.contains("default")) {
+            db.createObjectStore("default"); // создаём объектное хранилище
         }
     }
 
     idDB.onsuccess = async () => {
         const db = idDB.result;
-        const tx = db.transaction("vault", "readwrite");
-        const store = tx.objectStore("vault");
+        const tx = db.transaction("default", "readwrite");
+        const store = tx.objectStore("default");
 
 
         store.put({
